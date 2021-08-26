@@ -1,5 +1,6 @@
 ---
 published: false
+category: golang
 ---
 ## A New Post
 
