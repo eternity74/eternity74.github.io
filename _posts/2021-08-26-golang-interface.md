@@ -1,5 +1,7 @@
 ---
-published: false
+layout: blog
+published: true
+title: '[golang] interface'
 ---
 ## A New Post
 
