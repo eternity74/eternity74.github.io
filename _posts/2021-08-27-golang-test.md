@@ -1,6 +1,6 @@
 ---
 layout: blog
-published: false
+published: true
 title: '[golang] testing'
 ---
 ## A New Post
