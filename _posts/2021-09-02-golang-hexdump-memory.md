@@ -32,7 +32,7 @@ func main() {
 
 Program exited.
 ```
-[Playground 에서 결과 확인](https://play.golang.org/p/ihtSODDIExm)
+[Plaground 에서 확인](https://play.golang.org/p/ihtSODDIExm)
 
 ### array type읜 단일 메모리로 되어 있는 sole direct value part 를 가진다.
 (refer https://go101.org/article/value-part.html)
@@ -114,5 +114,8 @@ func main() {
 ```
 [Plaground 에서 확인](https://play.golang.org/p/ukhQKxfM9Jx)
 
+이로서 [100]byte type이 어떻게 메모리상에 위치/기록 되는지 살펴보았다.
+
+다음번엔 string type에 대해서 살펴 보도록 하자.
 
 Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
