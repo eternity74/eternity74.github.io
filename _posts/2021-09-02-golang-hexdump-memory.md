@@ -47,4 +47,6 @@ golang의 type의 값은 두 가지 형태가 있는데 array 처럼 메모리 �
 ....
 ```
 
+위의 내용을 memory를 직접 print 해서 알아보도록 눈으로 확인해보자.
+
 Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
