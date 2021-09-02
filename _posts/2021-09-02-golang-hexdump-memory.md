@@ -49,4 +49,69 @@ golang의 type의 값은 두 가지 형태가 있는데 array 처럼 메모리 �
 
 위의 내용을 memory를 직접 print 해서 알아보도록 눈으로 확인해보자.
 
+```
+package main
+
+import (
+	"fmt"
+	"strings"
+	"unsafe"
+)
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func toPrintable(c byte) byte {
+	if c > 31 && c < 128 {
+		return c
+	}
+	return '.'
+}
+
+func DumpMemory(address unsafe.Pointer, size int) {
+	for size > 0 {
+		data := *(*[16]byte)(address)
+		fmt.Printf("0x%08x : ", address)
+		for i := 0; i < min(16, size); i++ {
+			fmt.Printf("%02X ", data[i])
+		}
+		if size < 16 {
+			fmt.Print(strings.Repeat("   ", 16-size))
+		}
+		fmt.Print(" | ")
+		for i := 0; i < min(16, size); i++ {
+			fmt.Printf("%c", toPrintable(data[i]))
+		}
+		address = unsafe.Pointer(uintptr(address) + 16)
+		size -= 16
+		fmt.Println()
+	}
+}
+
+func main() {
+	var data [100]byte
+	for i := 0; i < 100; i++ {
+		data[i] = byte(i)
+	}
+	DumpMemory(unsafe.Pointer(&data), 100)
+}
+
+```
+출력결과
+```
+0xc000052070 : 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F  | ................
+0xc000052080 : 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F  | ................
+0xc000052090 : 20 21 22 23 24 25 26 27 28 29 2A 2B 2C 2D 2E 2F  |  !"#$%&'()*+,-./
+0xc0000520a0 : 30 31 32 33 34 35 36 37 38 39 3A 3B 3C 3D 3E 3F  | 0123456789:;<=>?
+0xc0000520b0 : 40 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F  | @ABCDEFGHIJKLMNO
+0xc0000520c0 : 50 51 52 53 54 55 56 57 58 59 5A 5B 5C 5D 5E 5F  | PQRSTUVWXYZ[\]^_
+0xc0000520d0 : 60 61 62 63                                      | `abc
+```
+[Plaground 에서 확인](https://play.golang.org/p/ukhQKxfM9Jx)
+
+
 Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
