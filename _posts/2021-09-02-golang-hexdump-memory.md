@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## memory를 hexdump해보자
 
