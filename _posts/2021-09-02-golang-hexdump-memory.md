@@ -1,5 +1,6 @@
 ---
 published: true
+category: golang
 ---
 ## memory를 hexdump해보자
 
