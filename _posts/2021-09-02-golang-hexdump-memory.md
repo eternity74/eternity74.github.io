@@ -1,6 +1,7 @@
 ---
 published: true
 category: golang
+title: [golang] Hexdump memory
 ---
 ## memory를 hexdump해보자
 
