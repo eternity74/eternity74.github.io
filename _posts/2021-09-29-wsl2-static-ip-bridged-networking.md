@@ -13,7 +13,7 @@ WSL2을 외부에서 접속하려고 하면 어려움이 많다. WSL2 는 기본
 Hyper-V의 WSL 가상 스위치를 External 로 network adapter를 저장하면 bridged networking이 되는데, host가 재 부팅 될 때마다 WSL 가상 스위치가 재 생성되기 때문에 부팅때마다 설정을 해줘야 한다.
 
 아래 script 는 이것을 자동화 한 것이다.
-
+``` powershell
 # WSL 시작
 wsl -- echo "$(date) Started"
 
@@ -32,7 +32,7 @@ Set-VMSwitch WSL -NetAdapterName $ifname
 
 # WSL 에 고정 IP 설정
 # wsl 에서 
-
+```
 
 
 Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
