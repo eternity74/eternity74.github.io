@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## WSL2 를 외부에 접속하기 위한 방법 (bridged networking)
 WSL2을 외부에서 접속하려고 하면 어려움이 많다. WSL2 는 기본적으로 internal 로 설정되기 때문에 외부에서 접속을 하려먼 port forwarding을 기본적으로 해줘야 한다. port forwarding 을 설정하려면 WSL2의 ip를 알아야 지정할 수 있는데, WSL2 는 고정 IP로 지정이 안되어 wsl2 의 ip를 얻어온 후 port forwarding을 설정해야 하는 불편함이 있다.
