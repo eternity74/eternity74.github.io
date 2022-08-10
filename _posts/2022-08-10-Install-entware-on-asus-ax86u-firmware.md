@@ -1,5 +1,6 @@
 ---
 published: false
+category: router
 ---
 ## Asus ax86u 공유기에 entware 설치하기
 
