@@ -103,6 +103,14 @@ regex(+ipset) 옵션이 추가된 것을 알 수 있다.
 
 새로운 dnsmasq 가 asus router 에서 사용 될 수 있도록 설정해보자
 우선 dnsmasq 를 /opt/bin 으로 복사해 준다.
+
     # RT-AX86U-4488:/opt/root/dnsmasq-regex# cp dnsmasq/src/dnsmasq /opt/bin/
 
+/opt/etc/dnsmasq.conf 파일이 기본 conf-file 로 사용되기에 original 파일을 /opt/etc/dnsmasq.conf 파일에서 Include 해준다.
+
+    # Include original conf first
+    conf-file=/etc/dnsmasq.conf
+    # Add custom configuration
+    # regex address examples, match 'xxx.qq.com' and 'xxx.q.com'
+	address=/:\.q{1,2}\.com$:/127.0.0.1
 
