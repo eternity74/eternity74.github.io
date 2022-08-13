@@ -21,13 +21,14 @@ dnsmasq-regex 소스 받아 오기
     
 pcre.h 파일을 /opt/root/dnsmasq-regex/ 폴더에 복사한다. [첨부된 파일](https://github.com/eternity74/eternity74.github.io/files/9331265/pcre.h.txt)을 사용하거나, https://sourceforge.net/projects/pcre/files/pcre/8.45/ 에서 추출한다.
 복사한 파일이 사용될 수 있도록 Makefile을 수정한다. (컴파일 옵션과 링크 옵션 수정)
+    
     diff --git a/Makefile b/Makefile
     index 914c7f6..cef50de 100644
     --- a/Makefile
     +++ b/Makefile
     @@ -5,16 +5,16 @@ PATCHES    := $(sort $(wildcard $(PATCH_DIR)/*.patch))
+    
      PATCHED    := $(sort $(patsubst $(PATCH_DIR)/%.patch, $(PATCH_DIR)/%.patched, $(PATCHES)))
-
      # turn on/off for regex or regex_ipset
     -DNSMASQ_COPTS="-DHAVE_REGEX -DHAVE_REGEX_IPSET"
     +DNSMASQ_COPTS="-DHAVE_REGEX -DHAVE_REGEX_IPSET -I/opt/root/dnsmasq-regex"
@@ -44,6 +45,20 @@ pcre.h 파일을 /opt/root/dnsmasq-regex/ 폴더에 복사한다. [첨부된 파
     +       cd dnsmasq && $(MAKE) COPTS=$(DNSMASQ_COPTS) LIBS=/opt/lib/libpcre.so
             $(MAKE) remove_patched
             $(MAKE) reset_submodule
+
+dnsmasq.conf 파일을 /opt/etc/dnsmasq.conf 가 디폴트로 사용되도록 수정한다,
+
+    RT-AX86U-4488:/opt/root/dnsmasq-regex/patches# cat 500-opt.patch
+    --- a/src/config.h
+    +++ b/src/config.h
+    @@ -212,7 +212,7 @@ RESOLVFILE
+     #   if defined(__FreeBSD__)
+     #      define CONFFILE "/usr/local/etc/dnsmasq.conf"
+     #   else
+    -#      define CONFFILE "/etc/dnsmasq.conf"
+    +#      define CONFFILE "/opt/etc/dnsmasq.conf"
+     #   endif
+     #endif
 
 이제 빌드를 시작한다.
     # make -j4
