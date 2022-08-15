@@ -113,4 +113,7 @@ regex(+ipset) 옵션이 추가된 것을 알 수 있다.
     # Add custom configuration
     # regex address examples, match 'xxx.qq.com' and 'xxx.q.com'
 	address=/:\.q{1,2}\.com$:/127.0.0.1
-
+    
+마지막으로 재부팅시 dnsmasq-regex가 동작되도록 post-mount 스크립트 수정
+    mount --bind /opt/bin/dnsmasq /usr/sbin/dnsmask
+    service restart_dnsmasq
