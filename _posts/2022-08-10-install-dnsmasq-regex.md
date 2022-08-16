@@ -1,6 +1,6 @@
 ---
 published: true
-category: router
+categories: router
 ---
 ## asus 공유기에 regex 가능한 dnsmasq 설치하기
 
