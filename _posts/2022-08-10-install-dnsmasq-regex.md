@@ -1,5 +1,6 @@
 ---
 published: true
+category: router
 ---
 ## asus 공유기에 regex 가능한 dnsmasq 설치하기
 
@@ -11,9 +12,11 @@ https://github.com/lixingcong/dnsmasq-regex 프로젝트를 사용하여 빌드�
 해당 프로젝트의 설치 방법을 보면 libpcre3-dev 를 설치하라고 되어 있는데 entware에는 해당 패키지가 존재하지 않는다. pcre.h 파일을 https://sourceforge.net/projects/pcre/files/pcre/8.45/ 소스에서 추출하여 빌드에 사용하기로 한다.
 
 git clone 및 pcre link에 필요한 패키지 설치
+
     # opkg install libpcre git-http
     
 dnsmasq-regex 소스 받아 오기
+
     # cd /opt/root
     # git clone --depth=1 https://github.com/lixingcong/dnsmasq-regex
     # cd dnsmasq-regex
@@ -61,6 +64,7 @@ dnsmasq.conf 파일을 /opt/etc/dnsmasq.conf 가 디폴트로 사용되도록 �
      #endif
 
 이제 빌드를 시작한다.
+
     # make -j4
     
     cd dnsmasq && make COPTS="-DHAVE_REGEX -DHAVE_REGEX_IPSET -I/opt/root/dnsmasq-regex" LIBS=/opt/lib/libpcre.so
@@ -91,6 +95,7 @@ dnsmasq.conf 파일을 /opt/etc/dnsmasq.conf 가 디폴트로 사용되도록 �
     make[1]: Leaving directory '/opt/root/dnsmasq-regex'
     
 빌드가 완료되면 dnsmasq 파일이/opt/root/dnsmasq-regex/dnsmasq/src/dnsmasq 에 생성된다.
+
     # /opt/root/dnsmasq-regex/dnsmasq/src/dnsmasq --version
     Dnsmasq version 2.87test8-16-g770bce9  Copyright (c) 2000-2022 Simon Kelley
     Compile time options: IPv6 GNU-getopt no-DBus no-UBus no-i18n regex(+ipset) no-IDN DHCP DHCPv6 no-Lua TFTP no-conntrack ipset no-nftset auth no-cryptohash no-DNSSEC loop-detect inotify dumpfile
