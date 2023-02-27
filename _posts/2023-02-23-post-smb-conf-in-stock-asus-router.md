@@ -1,6 +1,7 @@
 ---
 published: true
 categories: router
+title: '[공유기] ax86u stock firmware 에서 smb.conf 수정하기'
 ---
 ## asus router stock firmware 에서 post-smb-conf 스크립트 사용하기
 
