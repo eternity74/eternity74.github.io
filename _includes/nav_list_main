@@ -12,6 +12,12 @@
       </li>
       <li>
         <span class="nav__sub-title">Programming Language</span>
+        <ul>
+            {% for category in site.categories %}
+              <li><a href="/categories/{{category[0]}}" class=""> {{category[0]}} {{category[1].size}}</a></li>
+            {% endfor %}
+        </ul>
+        <!--
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "golang" %}
@@ -32,7 +38,8 @@
                         <li><a href="/categories/router" class="">공유기 ({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
-            </ul>            
+            </ul>
+        -->            
       </li>
   </ul>
 </nav>
