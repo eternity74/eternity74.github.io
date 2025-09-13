@@ -15,7 +15,7 @@ git clone 및 pcre link에 필요한 패키지 설치
 
     # opkg install libpcre git-http
     
-dnsmasq-regex 소스 받아 오기
+dnsmasq-regex 소스 받아 오기 ( f02eea18957bebb35f62417d1b37bb89f25e0f59 )
 
     # cd /opt/root
     # git clone --depth=1 https://github.com/lixingcong/dnsmasq-regex
@@ -121,5 +121,5 @@ regex(+ipset) 옵션이 추가된 것을 알 수 있다.
     
 마지막으로 재부팅시 dnsmasq-regex가 동작되도록 post-mount 스크립트 수정
 
-    mount --bind /opt/bin/dnsmasq /usr/sbin/dnsmask
+    mount --bind /opt/bin/dnsmasq /usr/sbin/dnsmasq
     service restart_dnsmasq
