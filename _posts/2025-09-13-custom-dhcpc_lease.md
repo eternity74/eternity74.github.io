@@ -12,7 +12,7 @@ lrwxrwxrwx    1 root root             2 Apr 17 05:15 /sbin/dhcpc_lease -> rc
 ```
 
 이전  custom dnsmasq 를 사용하도록 작업 해 두었다면 아래와 같이 설정한다.
-[dnsmasq에서 regex사용하기 참조](post-smb-conf-in-stock-asus-router) 
+[dnsmasq에서 regex사용하기 참조](router/post-smb-conf-in-stock-asus-router) 
  - /opt/etc/dnsmasq.conf 에 /etc/dnsmasq.conf 내용을 
  - dhcp-script=/sbin/dhcpc_lease 부분을 찾아서 comment 처리
 ```
