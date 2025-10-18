@@ -34,7 +34,7 @@ mount --bind 를 사용하여 write_smb_conf 에 우리가 작성한 스크립�
 1. 우선 original write_smb_conf 를 /opt/sbin/write_smb_conf 로 mount 한다.
 ```
     # touch /opt/sbin/write_smb_conf
-    # mount --bind /sbin/write_smb_conf /opt/sbin/write_smb_conf
+    # mount --bind /opt/sbin/write_smb_conf /sbin/write_smb_conf
 ```
 2. write_smb_conf.sh 파일을 생성한다.
 ```
